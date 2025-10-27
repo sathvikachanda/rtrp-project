@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Page with Zoom and Transition</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color:papayawhip;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .product-container {
+      max-width: 600px;
+      margin: auto;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-image img {
+      width: 400px;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+      margin: auto;
+      transition: opacity 0.5s ease-in-out;
+      cursor: zoom-in;
+    }
+
+    .product-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .price-section {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .price {
+      color: green;
+      font-size: 22px;
+    }
+
+    .original-price {
+      text-decoration: line-through;
+      color: gray;
+      font-size: 16px;
+      margin-left: 10px;
+    }
+
+    .discount {
+      color: red;
+      font-size: 16px;
+      margin-left: 5px;
+    }
+
+    .offer {
+      text-align: center;
+      margin-top: 5px;
+      color: #333;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      background-color: purple;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .similar-products {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .similar-products img {
+      width: 60px;
+      height: 75px;
+      margin: 5px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: border 0.3s;
+    }
+
+    .similar-products img:hover {
+      border: 2px solid purple;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      margin: 5% auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 30px;
+      right: 50px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="product-container">
+  <div class="product-image">
+    <img id="mainImage" src="s1.jpg" alt="Main Product Image" onclick="openModal()">
+  </div>
+
+  <div class="product-title">
+    Front Dori Top Puff Collar Lycra Fabric Casual Wear Western Look
+  </div>
+
+  <div class="price-section">
+    <span class="price">₹235</span>
+    <span class="original-price">₹239</span>
+    <span class="discount">2% off</span>
+  </div>
+
+  <div class="offer">₹223 with 1 Offer | Free Delivery</div>
+
+  
+
+  <h3 style="text-align: center;">Similar Products</h3>
+  <div class="similar-products">
+    <img src="s2.jpg" alt="Blue Top" onclick="changeImage(this)">
+    <img src="s3.jpg" alt="Maroon Top" onclick="changeImage(this)">
+    <img src="s4.jpg" alt="White Top" onclick="changeImage(this)">
+    <img src="s5.jpg" alt="Red Top" onclick="changeImage(this)">
+    <img src="s6.jpg" alt="Purple Top" onclick="changeImage(this)">
+    <img src="s7.jpg" alt="Black Top" onclick="changeImage(this)">
+  </div>
+  <div class="buttons">
+    
+    <a href="payment.html" alt="pay"><button class="button">Buy Now</button></a>
+  </div>
+</div>
+
+<!-- Modal for Zoom -->
+<div id="imageModal" class="modal" onclick="closeModal()">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="zoomedImg">
+</div>
+
+<script>
+  function changeImage(thumbnail) {
+    const mainImage = document.getElementById('mainImage');
+    mainImage.style.opacity = 0;
+    setTimeout(() => {
+      mainImage.src = thumbnail.src;
+      mainImage.alt = thumbnail.alt;
+      mainImage.style.opacity = 1;
+    }, 200);
+  }
+
+  function openModal() {
+    const modal = document.getElementById("imageModal");
+    const zoomedImg = document.getElementById("zoomedImg");
+    const mainImage = document.getElementById("mainImage");
+    zoomedImg.src = mainImage.src;
+    modal.style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+  }
+</script>
+
+</body>
+</html>

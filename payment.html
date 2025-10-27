@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Method</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color:azure;
+      margin: 0;
+      padding: 0;
+    }
+    .payment-container {
+      padding: 16px;
+    }
+    .stepper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f2f2f2;
+      padding: 10px;
+      color: #333;
+    }
+    .stepper span {
+      margin: 0 8px;
+    }
+
+    .payment-option {
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .payment-option.selected {
+      border-color: #a100b0;
+      background-color: #f9f1fc;
+    }
+
+    .payment-option .price {
+      color: green;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      color: gray;
+      font-size: 14px;
+      margin-left: 8px;
+    }
+
+    .save {
+      color: green;
+      font-size: 14px;
+    }
+
+    .offers {
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .offers .link {
+      color: #0066cc;
+      cursor: pointer;
+    }
+
+    .section-title {
+      font-weight: bold;
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+
+    .radio-group {
+      margin-bottom: 10px;
+    }
+
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #fff;
+      border-top: 1px solid #ccc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+    }
+
+    .bottom-bar .price {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .place-order {
+      background-color: #a100b0;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .link {
+      color: #0066cc;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="stepper">
+    <span>Review</span> | <span>Payment</span>
+  </div>
+
+  <div class="payment-container">
+    <div class="payment-option">
+      <label><input type="radio" name="payment" /> ₹235 Cash on Delivery</label>
+    </div>
+
+    <div class="payment-option selected">
+      <label>
+        <input type="radio" name="payment" checked />
+        <span class="price">₹223</span>
+        <span class="old-price">₹235</span>
+        <span class="save">Save ₹12</span>
+      </label>
+      <div class="offers">
+        Extra discount with bank offers —
+        <span class="link">View Offers</span>
+      </div>
+    </div>
+
+    <div class="section-title">Last Used</div>
+    <div class="radio-group">
+      <label><input type="radio" name="method" /> Paytm</label>
+      <div class="offers">
+        Assured cashback up to ₹200 on 1st & 3rd orders above ₹149 via Paytm UPI —
+        <span class="link">T&C</span>
+      </div>
+    </div>
+
+    <div class="radio-group">
+      <label><input type="radio" name="method" /> Pay by any UPI App</label>
+      <div class="link">Offers Available</div>
+    </div>
+
+    <div class="radio-group">
+      <label><input type="radio" name="method" /> Wallet</label>
+      <div class="link">Offers Available</div>
+    </div>
+
+    <div class="radio-group">
+      <label><input type="radio" name="method" /> Debit/Credit Cards</label>
+    </div>
+
+    <div class="radio-group">
+      <label><input type="radio" name="method" /> Net Banking</label>
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+    <div>
+      <span class="price">₹235</span>
+      <div class="link">View Price Details</div>
+    </div>
+    <a href="place.html" alt="place"><button class="place-order">Place Order</button></a>
+  </div>
+
+</body>
+</html>

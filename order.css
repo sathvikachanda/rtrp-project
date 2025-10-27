@@ -1,0 +1,16 @@
+ table {
+ width: 100%;
+border-collapse: collapse;
+ background-color: #e9ffe9; }
+ th, td {
+ border: 1px solid #000;
+ padding: 8px;
+ text-align: left;
+ }
+th {
+ background-color: #b2fab4;
+ }
+.status {
+color: green;
+ font-weight: bold;
+ }
